@@ -40,19 +40,22 @@
 	<form>
 		<h2>Ввел блять быстро</h2>
 		<p>
-			<input type="text" id="name" placeholder="сюда блять имя"><br>
+			<input type="text" id="name" placeholder="Имя" value="Андрей"><br>
 			<span id="name-span">А ну-ка ввел нормально</span>
 		</p>
 		<p>
-			<input type="text" id="last_name" placeholder="Фамилию сюда"><br>
+			<input type="text" id="last_name" placeholder="Фамилия" value="Лаврентьев"><br>
 			<span id="last_name-span">А ну-ка ввел нормально</span>
 		</p><br>
 		<p id="result"></p>
 	</form>
 
 	<script>
+		/*var width=document.body.clientWidth;
+		if (width > 480) 
+			alert("Так-с, этот сайт был разработан ТОЛЬКО под мобильные устройства, поэтому на пк он будет смотреться не так круто, как бы он смотрелся на твоем телефоне. Кароче бери и заходи сюда с телефона. Ну или уменьши окно браузера...");*/
 		var firstName, lastName;
-		//console.log("name = "+firstName);
+		console.log("name = "+firstName);
 
 		//inputCheck("name", firstName);
 		//inputCheck("last_name", lastName);
@@ -95,7 +98,7 @@
 		$("input").change(function(){
 			if(firstName == "Андрей" && lastName == "Лаврентьев"){
 				console.log("Pidor");
-				$("#result").html("Бля,сорян, но, кажется, ты пидор..<br>Без обид");
+				$("#result").html("Бля,сорян, но, кажется, ты пидор..<br>Без обид<br><input id='pidor-btn' type='button' value='Пойти нахуй'>");
 			}
 			else if(firstName == "Андрей" && (lastName == "Мордовин" || lastName == "Кривошеев")){
 				console.log("Пацан");
@@ -108,6 +111,10 @@
 				console.log("firstName = "+firstName+"\nlastName = "+lastName);
 			}
 		});
+
+		$("#pidor-btn").click(function(){
+			alert("бля, вот тут ты меня подловил, я не доделал эту хуйню, поэтому иди нахуй");
+		})
 	</script>
 	
 </body>
