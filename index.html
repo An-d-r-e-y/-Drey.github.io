@@ -1,18 +1,113 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
-</head>
-<body>
-
-	<h1>Андрей Лаврентьев пидор</h1>
-
+	<title>Иди нахуй</title>
+	<meta name="viewport" content="user-scalable=yes, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 	<style>
-		h1{
-			text-align: center;
+		body{
+			font-family: Bahnschrift;
+			background-color: #b97777;
+		}
+		form{
+			background-color: #e4e1e1;
+		    width:	calc(100% - 16px);
+		    padding: 0.5% 2%;
+		    height: 350px;
+		    text-align: center;
+		    box-shadow: 2px 2px 7px #6d6b6b;
+		}
+		input{
+			width: 83%;
+		    height: 21px;
+		    font-size: 13px;
+		    padding: 6px 0 4px 10px;
+		    border: 1px solid #cecece;
+		    background: #F6F6f6;
+		    border-radius: 4px;
+		    outline: none;
+		}
+		span{
+    		color: #d61515;
+    		opacity: 0.4;
 		}
 	</style>
+</head>
+<body>
+	
+	<form>
+		<h2>Ввел блять быстро</h2>
+		<p>
+			<input type="text" id="name" placeholder="Имя"><br>
+			<span id="name-span">А ну-ка ввел нормально</span>
+		</p>
+		<p>
+			<input type="text" id="last_name" placeholder="Фамилия"><br>
+			<span id="last_name-span">А ну-ка ввел нормально</span>
+		</p><br>
+		<p id="result">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus, voluptates!</p>
+	</form>
+
+	<script>
+		var firstName, lastName;
+		console.log("name = "+firstName);
+
+		//inputCheck("name", firstName);
+		//inputCheck("last_name", lastName);
+		
+
+		$("#name").change(function(){
+			var val = $(this).val();
+			console.log("val.lingth"+val.length);
+			if (val.length < 4) {
+				$("#name-span").css({opacity:"1", color:"#d61515"});
+				$("#name-span").html("Нормально введи");
+			}
+			else {
+				$("#name-span").css({opacity:"1", color:"green"});
+				$("#name-span").html("perfect");
+
+				firstName = val;
+
+				console.log("name = "+firstName);
+			}
+		});
+
+		$("#last_name").change(function(){
+			var val = $(this).val();
+			console.log("val.lingth"+val.length);
+			if (val.length < 4) {
+				$("#last_name-span").css({opacity:"1", color:"#d61515"});
+				$("#last_name-span").html("Нормально введи");
+			}
+			else {
+				$("#last_name-span").css({opacity:"1", color:"green"});
+				$("#last_name-span").html("perfect");
+
+				lastName = val;
+
+				console.log("last_name = "+lastName);
+			}
+		});
+
+		$("input").change(function(){
+			if(firstName == "Андрей" && lastName == "Лаврентьев"){
+				console.log("Pidor");
+				$("#result").html("Бля,сорян, но, кажется, ты пидор..<br>Без обид");
+			}
+			else if(firstName == "Андрей" && (lastName == "Мордовин" || lastName == "Кривошеев")){
+				console.log("Пацан");
+				$("#result").html("Нихуя себе!! Да ты <br> ебать вообще крутой тип");
+			}
+			else if(firstName != undefined && lastName != undefined){
+				console.log("Хз");
+				$("#result").html("Ваще хз кто это");
+			}else{
+				console.log("firstName = "+firstName+"\nlastName = "+lastName);
+			}
+		});
+	</script>
 	
 </body>
 </html>
